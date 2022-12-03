@@ -1,4 +1,4 @@
-#  Assembly
+#  T2T_Assembly
 ##  Data preparation  
 Pacbio Hifi data: 001.ccs.bam, 001.ccs.bam.pbi
 ###  Step1 Extraction hifi.fastq.gz data  
