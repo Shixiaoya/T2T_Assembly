@@ -48,10 +48,15 @@ PacBio HiFi/CCS genomic reads (v2.19 or later)
 ./minimap2 -ax map-hifi scaffold.fa pacbio-ccs.fq.gz > aln.sam  
 ```  
 ###  Step5 After comparison, the .sam file is obtained, and subsequent analysis needs to convert .sam to .bam  
-Install and using 
+Install and using:  
+Convert .sam to .bam  
+Sort sorts the .bam files  
+The sorted sequence is indexed and output as a .bai file  
 ```  
 conda install samtools  
 samtools view -@10 -b aln.sam > aln.bam  
 samtools sort -O bam -o aln.sorted.bam aln.bam  
 samtools index aln.sorted.bam  
 ```  
+Import the bam file to IGV and see if reads is supported  
+###  Step6 
