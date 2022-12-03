@@ -59,4 +59,17 @@ samtools sort -O bam -o aln.sorted.bam aln.bam
 samtools index aln.sorted.bam  
 ```  
 Import the bam file to IGV and see if reads is supported  
-###  Step6 
+###  Step6 The gaps were filled using the sequencing read  
+Statistics GAP and its location  
+```  
+python getgaps.py scaffols.fa > gaps.txt  
+```  
+Extract the corresponding position and 500bp before and after according to the chromosome location of the gap.txt, after obtaining the sequence file, the operation is the same as Step 5.  
+
+Extract the sequence  
+```  
+samtools view -b sorted.bam chrID:start-end > gap01.sorted.bam  
+samtools index gap01.sorted.bam  
+```  
+The genome is aligned to the upper sequence to fill the corresponding region. Use Minimap2 again for comparison，Import IGV to see if reads support is available. Fortunately, all the gaps were filled, reaching the level of no gaps.  
+
