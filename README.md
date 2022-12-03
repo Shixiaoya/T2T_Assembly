@@ -71,10 +71,16 @@ Extract the sequence
 samtools view -b sorted.bam chrID:start-end > gap01.sorted.bam  
 samtools index gap01.sorted.bam  
 ```  
-The genome is aligned to the upper sequence to fill the corresponding region. Use Minimap2 again for comparison，Import IGV to see if reads support is available. Fortunately, all the gaps were filled, reaching the level of no gaps.  
+The genome is aligned to the upper sequence to fill the corresponding region. Use Minimap2 again for comparison，Import IGV to see if reads support is available. Fortunately, all the gaps were filled, reaching the level of no gaps. Get `PN.T2T.fa` of this genome.  
 
 #  SNP calling  
 ##  Data preprocessing  
-### Step1  
+### Step1  Create an index on the reference genome  
+```  
+bwa index PN.T2T.fa  
+samtools  faidx PN.T2T.fa  
+gatk CreateSequenceDictionary -R PN.T2T.fa -O PN.T2T.dict  
+```
+
 #  Citation  
 
