@@ -17,7 +17,7 @@ Githup download ZIP: https://github.com/chhylp123/hifiasm , suggested latest ver
 ```  
 hifiasm -o hifiasm.asm --primary -t 32 hifiasm.fq.g  
 ```  
-Generate files：hifiasm.asm.p_ctg.gfa  hifiasm.asm.a_ctg, next, replace the .gfa file with a .fa file  
+Generate files：hifiasm.asm.p_ctg.gfa  hifiasm.asm.a_ctg, next, replace the .gfa file with a geom_gene_arrow(.fa) file  
 ```
 awk '/^S/{print ">"$2;print $3}' < hifiasm.asm.p_ctg.gfa> > hifiasm.fa  
 ```  
@@ -75,4 +75,6 @@ The genome is aligned to the upper sequence to fill the corresponding region. Us
 
 #  SNP calling  
 ##  Data preprocessing  
-### Step1 
+### Step1  
+#  Citation  
+
