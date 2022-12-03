@@ -73,3 +73,6 @@ samtools index gap01.sorted.bam
 ```  
 The genome is aligned to the upper sequence to fill the corresponding region. Use Minimap2 again for comparison，Import IGV to see if reads support is available. Fortunately, all the gaps were filled, reaching the level of no gaps.  
 
+#  SNP calling  
+##  Data preprocessing  
+### Step1 
