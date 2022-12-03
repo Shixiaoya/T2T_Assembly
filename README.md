@@ -17,7 +17,7 @@ Githup download ZIP: https://github.com/chhylp123/hifiasm , suggested latest ver
 ```  
 hifiasm -o hifiasm.asm --primary -t 32 hifiasm.fq.g  
 ```  
-Generate files：hifiasm.asm.p_ctg.gfa  hifiasm.asm.a_ctg, next, replace the .gfa file with a geom_gene_arrow(.fa) file  
+Generate files：`hifiasm.asm.p_ctg.gfa` `hifiasm.asm.a_ctg`, next, replace the `.gfa` file with a `.fa` file  
 ```
 awk '/^S/{print ">"$2;print $3}' < hifiasm.asm.p_ctg.gfa> > hifiasm.fa  
 ```  
@@ -35,7 +35,7 @@ delta-filter -i 95 -l 10000 -q output.delta > output.delta-filter
 mummerplot -t png -s large -p output output.delta-filter  
 show-coords -T -q -H output.delta-filter > coord.txt  
 ```  
-Assemble scaffold by manually adjusting according to the coord.txt. scaffold.fa
+Assemble scaffold by manually adjusting according to the `coord.txt`. `scaffold.fa`
 ###  Step4 Using Minimap2 for comparison and verification  
 Using:https://github.com/lh3/minimap2  
 Install  
@@ -47,11 +47,11 @@ PacBio HiFi/CCS genomic reads (v2.19 or later)
 ```  
 ./minimap2 -ax map-hifi scaffold.fa pacbio-ccs.fq.gz > aln.sam  
 ```  
-###  Step5 After comparison, the .sam file is obtained, and subsequent analysis needs to convert .sam to .bam  
+###  Step5 After comparison, the SAM file is obtained, and subsequent analysis needs to convert SAM to BAM  
 Install and using:  
-Convert .sam to .bam  
-Sort sorts the .bam files  
-The sorted sequence is indexed and output as a .bai file  
+Convert SAM to BAM  
+Sort sorts the BAM files  
+The sorted sequence is indexed and output as a `.bai` file  
 ```  
 conda install samtools  
 samtools view -@10 -b aln.sam > aln.bam  
@@ -64,7 +64,7 @@ Statistics GAP and its location
 ```  
 python getgaps.py scaffols.fa > gaps.txt  
 ```  
-Extract the corresponding position and 500bp before and after according to the chromosome location of the gap.txt, after obtaining the sequence file, the operation is the same as Step 5.  
+Extract the corresponding position and 500bp before and after according to the chromosome location of the `gap.txt`, after obtaining the sequence file, the operation is the same as Step 5.  
 
 Extract the sequence  
 ```  
