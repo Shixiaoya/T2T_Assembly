@@ -35,6 +35,23 @@ delta-filter -i 95 -l 10000 -q output.delta > output.delta-filter
 mummerplot -t png -s large -p output output.delta-filter  
 show-coords -T -q -H output.delta-filter > coord.txt  
 ```  
-Assemble scaffold by manually adjusting according to the coord.txt  
+Assemble scaffold by manually adjusting according to the coord.txt. scaffold.fa
 ###  Step4 Using Minimap2 for comparison and verification  
+Using:https://github.com/lh3/minimap2  
+Install  
+```  
+git clone https://github.com/lh3/minimap2
+cd minimap2 && make  
+```    
+PacBio HiFi/CCS genomic reads (v2.19 or later)  
+```  
+./minimap2 -ax map-hifi scaffold.fa pacbio-ccs.fq.gz > aln.sam  
+```  
+###  Step5 After comparison, the .sam file is obtained, and subsequent analysis needs to convert .sam to .bam  
+Install and using 
+```  
+conda install samtools  
+samtools view -@10 -b aln.sam > aln.bam  
+samtools sort -O bam -o aln.sorted.bam aln.bam  
+samtools index aln.sorted.bam  
 ```  
