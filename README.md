@@ -24,8 +24,9 @@ awk '/^S/{print ">"$2;print $3}' < hifiasm.asm.p_ctg.gfa> > hifiasm.fa
 ###  Step3 Using mummer, according to reference correct contigs, adjust order and orientation
 Install  
 ```  
-./configure --prefix=/path/to/installation  
-make  
+wget https://gigenet.dl.sourceforge.net/project/mummer/mummer/3.23/MUMmer3.23.tar.gz
+tar -xf MUMmer3.23.tar.gz
+cd  MUMmer3.23
 make install  
 ```
 Using: https://github.com/mummer4/mummer 
