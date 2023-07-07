@@ -71,8 +71,19 @@ Extract the sequence
 ```  
 samtools view -b sorted.bam chrID:start-end > gap01.sorted.bam  
 samtools index gap01.sorted.bam  
-```  
-The genome is aligned to the upper sequence to fill the corresponding region. Use Minimap2 again for comparison，Import IGV to see if reads support is available. Fortunately, all the gaps were filled, reaching the level of no gaps. Get `PN.T2T.fa` of this genome.  
+```
+Import IGV software, find and extract the sequence of gap region, create `gap.fa` file. Extract the `chrX.fa` file according to chromosome ID, each line is 200bp everywhere, and fill the gap sequence found in the gap area of each chromosome. After filling, convert `chrX_fill.fa` to a chromosome line
+```
+seqkit split -i -w 200 chrX.fa
+vim chrX.fa   #filling
+seqkit seq -w 0 chr_fill.fa > chrX_fill0.fa
+```
+Then use minimap to verify whether the filling is correct, as shown in Step4
+```
+cat chr1_fill0.fa chr2_fill0.fa ...... chrX_fill0.fa > gap_free.fa
+```
+Merge all chromosomes to get the final `gap-free.fa` genome file
+
 
 
 #  Citation  
