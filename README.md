@@ -19,7 +19,7 @@ hifiasm -o hifiasm.asm --primary -t 32 hifiasm.fq.g
 ```  
 Generate files：`hifiasm.asm.p_ctg.gfa` `hifiasm.asm.a_ctg`, next, replace the `.gfa` file with a `.fa` file  
 ```
-awk '/^S/{print ">"$2;print $3}' < hifiasm.asm.p_ctg.gfa> > hifiasm.fa  
+awk '/^S/{print ">"$2;print $3}' hifiasm.asm.p_ctg.gfa > hifiasm.fa  
 ```  
 ###  Step3 Using mummer, according to reference correct contigs, adjust order and orientation
 Install  
@@ -65,7 +65,7 @@ Statistics GAP and its location
 ```  
 python getgaps.py scaffols.fa > gaps.txt  
 ```  
-Extract the corresponding position and 500bp before and after according to the chromosome location of the `gap.txt`, after obtaining the sequence file, the operation is the same as Step 5.  
+Extract the corresponding position and 50kb before and after according to the chromosome location of the `gap.txt`, after obtaining the sequence file, the operation is the same as Step 5.  
 
 Extract the sequence  
 ```  
