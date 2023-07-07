@@ -78,7 +78,7 @@ seqkit split -i -w 200 chrX.fa
 vim chrX.fa   #filling
 seqkit seq -w 0 chr_fill.fa > chrX_fill0.fa
 ```
-Then use minimap to verify whether the filling is correct, as shown in Step4
+Then use minimap to verify whether the filling is correct, as shown in Step4 and Step5
 ```
 cat chr1_fill0.fa chr2_fill0.fa ...... chrX_fill0.fa > gap_free.fa
 ```
